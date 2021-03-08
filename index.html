@@ -2,9 +2,7 @@
 <html>
 <body>
 
-<h2>Loading........  Please wait</h2>
-
-
+<h2>Loading.....  Please wait.....</h2>
 
 
 <script>
@@ -24,15 +22,24 @@ function formatDate(date) {
 
 var d = new Date();
 var d1 = new Date();
+
+// d.getHours(); // => 9
+// d.getMinutes(); // =>  30
+// d.getSeconds(); // => 51
+var hours = String(d.getHours()).length < 2? "0"+String(d.getHours()) : String(d.getHours()) ;
+var minutes = String(d.getMinutes()).length < 2? "0"+String(d.getMinutes()) : String(d.getMinutes());
+var seconds = String(d.getSeconds()).length < 2? "0"+String(d.getSeconds()) : String(d.getSeconds());
+
+//var time = String(d.getHours()) + String(d.getMinutes()) + String(d.getSeconds())
+var time = hours + minutes + seconds
+var time2 = 500 + parseInt(time);
 d1.setDate(d.getDate() + 20);
 
 
-var url = `https://calendar.google.com/calendar/render?action=TEMPLATE&dates=${formatDate(d)}/${formatDate(d1)}&text=Your product is about to expire. Kinldy buy a refil using the following link https://www.amazon.in/Dettol-Disinfectant-Multi-Purpose-Liquid-Fresh/dp/B0727X79YZ/ref=sr_1_1_sspa?dchild=1&keywords=dettol&qid=1615133233&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzVEZaTTZLVElJSlMwJmVuY3J5cHRlZElkPUEwODExOTg5QjVUMENKSFQxN1VLJmVuY3J5cHRlZEFkSWQ9QTA5OTYwNjhHQlVPSjBZMkxISSZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU= `
-
+var url = `https://calendar.google.com/calendar/render?action=TEMPLATE&dates=${formatDate(d)}T${time}/${formatDate(d1)}T${time2}&ctz=Asia/Kolkata&text=Your product is about to expire. Kindly buy a refill using the following link : https://www.amazon.in/Dettol-Disinfectant-Multi-Purpose-Liquid-Fresh/dp/B0727X79YZ/ref=sr_1_1_sspa?dchild=1&keywords=dettol&qid=1615133233&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzVEZaTTZLVElJSlMwJmVuY3J5cHRlZElkPUEwODExOTg5QjVUMENKSFQxN1VLJmVuY3J5cHRlZEFkSWQ9QTA5OTYwNjhHQlVPSjBZMkxISSZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU= `
 
 
 window.location.href = url;
-
 
 </script>
 
